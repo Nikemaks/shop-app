@@ -8,6 +8,10 @@ import { CreateListComponent } from './components/pages/create-list-pages/create
 import { MenuComponent } from './components/menu/menu.component';
 import { HistoryComponent } from "./components/pages/history-pages/history.component";
 import { ListComponent } from './components/pages/create-list-pages/list/list.component';
+import { HistoryTableComponent } from './components/pages/history-pages/history-table/history-table.component';
+import { ItemEditComponent } from './components/pages/create-list-pages/item-edit/item-edit.component';
+import { SummaryComponent } from './components/pages/create-list-pages/summary/summary.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,13 +20,19 @@ import { ListComponent } from './components/pages/create-list-pages/list/list.co
     CreateListComponent,
     MenuComponent,
     HistoryComponent,
-    ListComponent
+    ListComponent,
+    HistoryTableComponent,
+    ItemEditComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

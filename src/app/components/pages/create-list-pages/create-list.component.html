@@ -1,8 +1,16 @@
-<form action="" class="form offset-3 col-5">
-  <div class="input-group ">
-    <input type="text" class="form-control" placeholder="Add-item">
-    <button class="btn btn-outline-secondary"><i class="bi bi-plus-circle"></i></button>
+<form [formGroup]="myGroup" class="form offset-3 col-5">
+  <div class="input-group">
+    <input formControlName="newItem" type="text" class="form-control" placeholder="Add-item">
+    <button [disabled]="myGroup.invalid"
+            (click)="createItem()"
+            class="btn btn-outline-secondary"><i class="bi bi-plus-circle"></i></button>
   </div>
 </form>
-
-<list></list>
+<div class="container mt-3 offset-3 col-5">
+  <ul class="list-group">
+    <ng-container *ngFor="let item of listItems">
+      <list-items [item]="item"></list-items>
+    </ng-container>
+  </ul>
+  <summary-view [list]="listItems"></summary-view>
+</div>

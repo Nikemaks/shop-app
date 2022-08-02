@@ -1,0 +1,24 @@
+<form class="g-3 mt-3" [formGroup]="formGroup">
+  <div class="mb-3 d-flex justify-content-sm-between">
+    <label for="price" class="col-auto">Price $</label>
+    <div class="col-sm-5">
+      <input type="number" formControlName="price" class="form-control" id="price" placeholder="Price">
+    </div>
+  </div>
+  <div class="mb-3 d-flex justify-content-sm-between">
+    <label for="quality" class="col-auto">Quality</label>
+    <div class="col-sm-5">
+      <input type="number"  formControlName="quality" class="form-control" id="quality" placeholder="quality">
+    </div>
+  </div>
+  <div class="mb-3 d-flex justify-content-sm-between">
+    <label for="totalPrice" class="col-auto">Total Price</label>
+    <div class="col-sm-5">
+      <input type="number" [value]="countValue(editItem)" class="form-control" id="totalPrice" placeholder="Total Price">
+    </div>
+  </div>
+  <div class="btn-group offset-9 col-auto">
+    <button class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+    <button class="btn btn-success ms-3"><i class="bi bi-save"></i></button>
+  </div>
+</form>

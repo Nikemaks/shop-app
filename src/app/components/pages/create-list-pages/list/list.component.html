@@ -1,7 +1,14 @@
-<ul class="list-group">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
-</ul>
+<li class="list-group-item pointer">
+  <form action="" [formGroup]="formGroup">
+    <input formControlName="isDoneControl"
+           class="form-check-input me-3"
+           type="checkbox" id="checkboxNoLabel"
+           [checked]="formGroup.controls.isDoneControl.value">
+    <span class="title-block">
+      <span [ngClass]="{'text-decoration-line-through': formGroup.controls.isDoneControl.value}" class="">{{item.title}}</span>
+      <i *ngIf="!isEdit" (click)="isEdit = !isEdit" class="bi bi-file-arrow-down-fill"></i>
+      <i *ngIf="isEdit" (click)="isEdit = !isEdit" class="bi bi-file-arrow-up-fill"></i>
+    </span>
+  </form>
+  <item-edit [editItem]="item" *ngIf="isEdit"></item-edit>
+</li>
