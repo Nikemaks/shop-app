@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ListItemsInterface } from "../../../../interfaces/list-items";
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
@@ -15,11 +15,11 @@ export class ItemEditComponent implements OnInit {
   @Output() saveItem = new EventEmitter<number>();
 
   formGroup = this.fb.group({
-    price: new FormControl('', [Validators.required]),
-    count: new FormControl('', [Validators.required])
+    price: new UntypedFormControl('', [Validators.required]),
+    count: new UntypedFormControl('', [Validators.required])
   })
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {

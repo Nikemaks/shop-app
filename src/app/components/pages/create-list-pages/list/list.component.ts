@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ListItemsInterface } from "../../../../interfaces/list-items";
-import { FormBuilder, FormControl } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl } from "@angular/forms";
 
 @Component({
   selector: 'list-items',
@@ -15,11 +15,11 @@ export class ListComponent implements OnInit {
 
   isEdit = false;
   formGroup = this.fb.group({
-      isDoneControl: new FormControl(false)
+      isDoneControl: new UntypedFormControl(false)
     }
   );
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {

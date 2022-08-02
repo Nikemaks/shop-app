@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { ListItemsInterface } from "../../../interfaces/list-items";
-import { $e } from "@angular/compiler/src/chars";
 import { LocalStorageService, SHOP_ITEMS } from "../../../services/local-storage.service";
 
 export const GENERATE_UNIQ_ID = () => Math.floor(Math.random() * 100);
@@ -16,12 +15,12 @@ export class CreateListComponent implements OnInit {
   listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS) || [];
 
   myGroup = this.fb.group({
-    newItem: new FormControl(
+    newItem: new UntypedFormControl(
       '', [Validators.required, Validators.minLength(3)]
     )
   });
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private localStorageService: LocalStorageService) {
   }
 
