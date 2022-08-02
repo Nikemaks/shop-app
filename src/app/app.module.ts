@@ -12,6 +12,8 @@ import { HistoryTableComponent } from './components/pages/history-pages/history-
 import { ItemEditComponent } from './components/pages/create-list-pages/item-edit/item-edit.component';
 import { SummaryComponent } from './components/pages/create-list-pages/summary/summary.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ChartPageComponent } from './components/pages/chart-page/chart-page.component';
+import { GoogleChartsModule } from "angular-google-charts";
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ListComponent,
     HistoryTableComponent,
     ItemEditComponent,
-    SummaryComponent
+    SummaryComponent,
+    ChartPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
