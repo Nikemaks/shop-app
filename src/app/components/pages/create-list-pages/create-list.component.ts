@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { ListItemsInterface } from "../../../interfaces/list-items";
 import { $e } from "@angular/compiler/src/chars";
+import { LocalStorageService, SHOP_ITEMS } from "../../../services/local-storage.service";
 
 export const GENERATE_UNIQ_ID = () => Math.floor(Math.random() * 100);
 
@@ -12,7 +13,7 @@ export const GENERATE_UNIQ_ID = () => Math.floor(Math.random() * 100);
 })
 export class CreateListComponent implements OnInit {
 
-  listItems: Array<ListItemsInterface> = [];
+  listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS) || [];
 
   myGroup = this.fb.group({
     newItem: new FormControl(
@@ -20,7 +21,8 @@ export class CreateListComponent implements OnInit {
     )
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private localStorageService: LocalStorageService) {
   }
 
   ngOnInit(): void {
@@ -44,5 +46,9 @@ export class CreateListComponent implements OnInit {
 
   removeItem($event: number) {
     this.listItems = this.listItems.filter(item => item.id !== $event);
+  }
+
+  saveItem($event: ListItemsInterface) {
+    this.localStorageService.setStorage(SHOP_ITEMS, this.listItems);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ListItemsInterface } from "../../../../interfaces/list-items";
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
   selector: 'item-edit',
@@ -9,7 +10,9 @@ import { FormBuilder, FormControl, Validators } from "@angular/forms";
 })
 export class ItemEditComponent implements OnInit {
   @Input() editItem!: ListItemsInterface;
-  @Output() removeItem = new EventEmitter<number>()
+  @Input() listItems!: ListItemsInterface[];
+  @Output() removeItem = new EventEmitter<number>();
+  @Output() saveItem = new EventEmitter<number>();
 
   formGroup = this.fb.group({
     price: new FormControl('', [Validators.required]),
@@ -22,7 +25,6 @@ export class ItemEditComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup.patchValue(this.editItem);
     this.formGroup.valueChanges.subscribe(value => {
-      console.log(value);
       this.countValue();
     })
   }
@@ -36,6 +38,7 @@ export class ItemEditComponent implements OnInit {
       price: this.formGroup.get('price')?.value,
       count: this.formGroup.get('count')?.value
     });
+    this.saveItem.emit();
   }
 
   remove() {
