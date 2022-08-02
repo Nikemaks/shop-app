@@ -9,8 +9,8 @@
 <div class="container mt-3 offset-3 col-5">
   <ul class="list-group">
     <ng-container *ngFor="let item of listItems">
-      <list-items (save)="saveItem($event)" (removeItemList)="removeItem($event)" [item]="item"></list-items>
+      <app-list-items (save)="saveItem($event)" (removeItemList)="removeItem($event)" [item]="item"></app-list-items>
     </ng-container>
   </ul>
-  <summary-view [list]="listItems"></summary-view>
+  <app-summary-view [list]="listItems"></app-summary-view>
 </div>

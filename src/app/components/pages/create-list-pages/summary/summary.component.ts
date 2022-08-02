@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ListItemsInterface } from "../../../../interfaces/list-items";
 
 @Component({
-  selector: 'summary-view',
+  selector: 'app-summary-view',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.scss']
 })

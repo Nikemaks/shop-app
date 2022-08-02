@@ -3,7 +3,7 @@ import { ListItemsInterface } from "../../../../interfaces/list-items";
 import { UntypedFormBuilder, UntypedFormControl } from "@angular/forms";
 
 @Component({
-  selector: 'list-items',
+  selector: 'app-list-items',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

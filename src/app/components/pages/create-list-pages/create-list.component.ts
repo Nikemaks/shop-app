@@ -6,7 +6,7 @@ import { LocalStorageService, SHOP_ITEMS } from "../../../services/local-storage
 export const GENERATE_UNIQ_ID = () => Math.floor(Math.random() * 100);
 
 @Component({
-  selector: 'create-list',
+  selector: 'app-create-list',
   templateUrl: './create-list.component.html',
   styleUrls: ['./create-list.component.scss']
 })

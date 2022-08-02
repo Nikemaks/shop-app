@@ -4,7 +4,7 @@ import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/for
 import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
-  selector: 'item-edit',
+  selector: 'app-item-edit',
   templateUrl: './item-edit.component.html',
   styleUrls: ['./item-edit.component.scss']
 })

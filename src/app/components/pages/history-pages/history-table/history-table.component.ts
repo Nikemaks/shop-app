@@ -3,7 +3,7 @@ import { ListItemsInterface } from "../../../../interfaces/list-items";
 import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
-  selector: 'history-table',
+  selector: 'app-history-table',
   templateUrl: './history-table.component.html',
   styleUrls: ['./history-table.component.scss']
 })

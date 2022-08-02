@@ -4,7 +4,7 @@ import { HistoryComponent } from "./components/pages/history-pages/history.compo
 import { CreateListComponent } from "./components/pages/create-list-pages/create-list.component";
 import { ChartPageComponent } from "./components/pages/chart-page/chart-page.component";
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', component: CreateListComponent},
   {path: 'history', component: HistoryComponent},
   {path: 'create', component: CreateListComponent},
