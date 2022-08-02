@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ListItemsInterface } from "../../../../interfaces/list-items";
 import { FormBuilder, FormControl } from "@angular/forms";
 
@@ -10,6 +10,7 @@ import { FormBuilder, FormControl } from "@angular/forms";
 export class ListComponent implements OnInit {
 
   @Input() item!: ListItemsInterface;
+  @Output() removeItemList = new EventEmitter<number>();
   isEdit = false;
   formGroup = this.fb.group({
       isDoneControl: new FormControl(false)
@@ -25,4 +26,7 @@ export class ListComponent implements OnInit {
     });
   }
 
+  removeItem($event: number) {
+    this.removeItemList.emit($event);
+  }
 }

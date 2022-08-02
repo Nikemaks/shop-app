@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { ListItemsInterface } from "../../../interfaces/list-items";
+import { $e } from "@angular/compiler/src/chars";
 
 export const GENERATE_UNIQ_ID = () => Math.floor(Math.random() * 100);
 
@@ -31,13 +32,17 @@ export class CreateListComponent implements OnInit {
         title: this.myGroup.value.newItem,
         date: new Date().toJSON(),
         price: 0,
-        quality: 1,
+        count: 1,
         id: GENERATE_UNIQ_ID(),
         isDone: false
       };
-      console.log(newItemOfList);
       this.listItems.push(newItemOfList);
+      this.myGroup.get('newItem')?.patchValue('');
     }
 
+  }
+
+  removeItem($event: number) {
+    this.listItems = this.listItems.filter(item => item.id !== $event);
   }
 }

@@ -10,5 +10,5 @@
       <i *ngIf="isEdit" (click)="isEdit = !isEdit" class="bi bi-file-arrow-up-fill"></i>
     </span>
   </form>
-  <item-edit [editItem]="item" *ngIf="isEdit"></item-edit>
+  <item-edit (removeItem)="removeItem($event)" [editItem]="item" *ngIf="isEdit"></item-edit>
 </li>

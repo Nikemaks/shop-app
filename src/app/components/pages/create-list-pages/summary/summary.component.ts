@@ -16,7 +16,7 @@ export class SummaryComponent implements OnInit {
 
   countTotalPrice() {
     return this.list.reduce((memo, item) => {
-      return item.price + memo;
+      return (item.price * item.count) + memo;
     }, 0)
   }
 }
