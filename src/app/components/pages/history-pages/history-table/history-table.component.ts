@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListItemsInterface } from "../../../../interfaces/list-items";
+import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
   selector: 'history-table',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryTableComponent implements OnInit {
 
-  constructor() { }
+  listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS) || [];
+
+  constructor(private localStorageService: LocalStorageService) {
+  }
 
   ngOnInit(): void {
   }
