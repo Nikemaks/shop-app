@@ -11,7 +11,11 @@ export class ChartPageComponent implements OnInit {
   chart = {
     title: 'Title',
     type: ChartType.PieChart,
-    data: [],
+    data: [ ['London', 8136000],
+      ['New York', 8538000],
+      ['Paris', 2244000],
+      ['Berlin', 3470000],
+      ['Kairo', 19500000]],
     columnNames: ['', ''],
     options: {}
   }
