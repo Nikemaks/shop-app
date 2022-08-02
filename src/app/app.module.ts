@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from "./app.component";
 import { MainPageComponent } from "./components/pages/main-page/main-page.component";
@@ -10,10 +10,9 @@ import { HistoryTableComponent } from "./components/pages/history-pages/history-
 import { ItemEditComponent } from "./components/pages/create-list-pages/item-edit/item-edit.component";
 import { SummaryComponent } from "./components/pages/create-list-pages/summary/summary.component";
 import { ChartPageComponent } from "./components/pages/chart-page/chart-page.component";
-import { GoogleChartComponent, GoogleChartsModule } from "angular-google-charts";
+import { GoogleChartsModule } from "angular-google-charts";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/compiler";
 
 @NgModule({
   declarations: [
