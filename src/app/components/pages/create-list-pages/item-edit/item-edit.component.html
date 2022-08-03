@@ -12,6 +12,14 @@
     </div>
   </div>
   <div class="mb-3 d-flex justify-content-sm-between">
+    <label class="col-auto">Type</label>
+    <div class="col-sm-5">
+      <select class="form-select" aria-label="Default select example" formControlName="type">
+          <option *ngFor="let item of typeSpending" value="{{item}}">{{item}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="mb-3 d-flex justify-content-sm-between">
     <label for="totalPrice" class="col-auto">Total Price</label>
     <div class="col-sm-5">
       <input readonly disabled type="number" [value]="countValue()" class="form-control" id="totalPrice"
@@ -20,6 +28,7 @@
   </div>
   <div class="btn-group offset-9 col-auto">
     <button (click)="remove()" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-    <button [disabled]="formGroup.invalid" (click)="save()" class="btn btn-success ms-3"><i class="bi bi-save"></i></button>
+    <button [disabled]="formGroup.invalid" (click)="save()" class="btn btn-success ms-3"><i class="bi bi-save"></i>
+    </button>
   </div>
 </form>

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ListItemsInterface } from "../../../../interfaces/list-items";
+import { ListItemsInterface, TYPE_SPENDING } from "../../../../interfaces/list-items";
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
-import { LocalStorageService, SHOP_ITEMS } from "../../../../services/local-storage.service";
 
 @Component({
   selector: 'app-item-edit',
@@ -16,8 +15,10 @@ export class ItemEditComponent implements OnInit {
 
   formGroup = this.fb.group({
     price: new UntypedFormControl('', [Validators.required]),
-    count: new UntypedFormControl('', [Validators.required])
+    count: new UntypedFormControl('', [Validators.required]),
+    type: new UntypedFormControl('Food')
   })
+  typeSpending = TYPE_SPENDING;
 
   constructor(private fb: UntypedFormBuilder) {
   }
@@ -36,7 +37,8 @@ export class ItemEditComponent implements OnInit {
   save() {
     this.editItem = Object.assign(this.editItem, {
       price: this.formGroup.get('price')?.value,
-      count: this.formGroup.get('count')?.value
+      count: this.formGroup.get('count')?.value,
+      type: this.formGroup.get('type')?.value,
     });
     this.saveItem.emit();
   }

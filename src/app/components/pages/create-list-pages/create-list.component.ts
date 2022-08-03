@@ -32,13 +32,15 @@ export class CreateListComponent implements OnInit {
       const newItemOfList = {
         title: this.myGroup.value.newItem,
         date: new Date().toJSON(),
-        price: 0,
+        price: 1,
         count: 1,
         id: GENERATE_UNIQ_ID(),
-        isDone: false
+        isDone: false,
+        type: 'Food'
       };
       this.listItems.push(newItemOfList);
       this.myGroup.get('newItem')?.patchValue('');
+      this.saveItem();
     }
 
   }
@@ -47,7 +49,7 @@ export class CreateListComponent implements OnInit {
     this.listItems = this.listItems.filter(item => item.id !== $event);
   }
 
-  saveItem($event: ListItemsInterface) {
+  saveItem() {
     this.localStorageService.setStorage(SHOP_ITEMS, this.listItems);
   }
 }
