@@ -1,3 +1,5 @@
 <div class="container align-items-center justify-content-center">
-  <google-chart class="mt-5" [type]="chart.type" [data]="chart.data" [title]="chart.title"></google-chart>
+  <ng-container *ngIf="chartData.length">
+    <google-chart class="mt-5" [type]="chart.type" [data]="chartData" [title]="chart.title"></google-chart>
+  </ng-container>
 </div>

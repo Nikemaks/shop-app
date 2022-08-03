@@ -10,17 +10,11 @@ import { LocalStorageService, SHOP_ITEMS } from "../../../services/local-storage
 })
 export class ChartPageComponent implements OnInit {
 
+  chartData: Array<Array<string | number>> = [];
   chart = {
     title: 'Title',
     type: ChartType.PieChart,
-    data: [['London', 8136000],
-      ['New York', 8538000],
-      ['Paris', 2244000],
-      ['Berlin', 3470000],
-      ['Kairo', 19500000]],
-    columnNames: ['', ''],
-    options: {}
-  }
+  };
 
   constructor(private localStorageService: LocalStorageService) {
   }
@@ -46,9 +40,9 @@ export class ChartPageComponent implements OnInit {
         title,
         price
       ])
-    })
+    });
 
-    this.chart.data = chartDate;
+    this.chartData = chartDate;
   }
 
 }
