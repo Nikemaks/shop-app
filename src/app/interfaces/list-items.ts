@@ -8,6 +8,11 @@ export interface ListItemsInterface {
   type: string
 }
 
+export interface HistoryDateInterface {
+  date: string,
+  purchases: Array<ListItemsInterface>
+}
+
 export enum TypeSpending {
   FOOD = 'Food',
   MEDICAL = "Medical",

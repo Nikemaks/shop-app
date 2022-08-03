@@ -1,22 +1,28 @@
-<table class="table">
+<table class="table mt-5">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Title</th>
     <th scope="col">Date</th>
+    <th scope="col">List</th>
     <th scope="col">Price</th>
     <th scope="col">Type</th>
-    <th scope="col">Is done</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of listItems; let idx= index">
+  <tr *ngFor="let item of groupArrays; let idx= index">
     <th scope="row">{{idx+1}}</th>
-    <td>{{item.title}}</td>
     <td>{{item.date }}</td>
-    <td>{{item.price}}</td>
-    <td>{{item.type}}</td>
-    <td>{{item.isDone}}</td>
+    <td>
+      <ul class="list-group">
+        <li *ngFor="let shopItem of item.purchases; let idx = index" class="list-group-item">{{idx+1}}. {{shopItem.title}}</li>
+      </ul>
+    </td>
+    <td><ul class="list-group">
+      <li *ngFor="let shopItem of item.purchases; let idx = index" class="list-group-item">{{idx+1}}. {{shopItem.price}}</li>
+    </ul></td>
+    <td><ul class="list-group">
+      <li *ngFor="let shopItem of item.purchases; let idx = index" class="list-group-item">{{idx+1}}. {{shopItem.type}}</li>
+    </ul></td>
   </tr>
   </tbody>
 </table>
