@@ -14,7 +14,7 @@ export class HistoryTableComponent {
   }
 
   parseDateForHistory() {
-    const listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS);
+    const listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS) || [];
     let finalObj: { [index: string]: Array<ListItemsInterface> } = {};
     listItems.forEach((purchases) => {
       const date = purchases.date.split('T')[0];

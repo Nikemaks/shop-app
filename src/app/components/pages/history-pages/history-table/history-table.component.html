@@ -1,4 +1,4 @@
-<table class="table mt-5" *ngIf="groupArrays.length">
+<table class="table mt-5" *ngIf="groupArrays.length; else empty">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -26,3 +26,8 @@
   </tr>
   </tbody>
 </table>
+<ng-template #empty>
+ <div class="container-fluid mt-5">
+   <h1 class="text-center">You haven't made any purchases yet.</h1>
+ </div>
+</ng-template>

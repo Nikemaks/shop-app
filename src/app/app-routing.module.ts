@@ -5,7 +5,7 @@ import { CreateListComponent } from "./components/pages/create-list-pages/create
 import { ChartPageComponent } from "./components/pages/chart-page/chart-page.component";
 
 export const routes: Routes = [
-  {path: '', component: CreateListComponent},
+  {path: '', redirectTo: 'create', pathMatch: 'full'},
   {path: 'history', component: HistoryComponent},
   {path: 'create', component: CreateListComponent},
   {path: 'chart', component: ChartPageComponent},

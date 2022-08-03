@@ -12,7 +12,7 @@ export class ChartPageComponent implements OnInit {
 
   chartData: Array<Array<string | number>> = [];
   chart = {
-    title: 'Title',
+    title: 'Shopping schedule by type',
     type: ChartType.PieChart,
   };
 
@@ -20,7 +20,7 @@ export class ChartPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS);
+    const listItems: Array<ListItemsInterface> = this.localStorageService.getStorageItem(SHOP_ITEMS) || [];
     let finalObj: { [index: string]: Array<ListItemsInterface> } = {}
     listItems.forEach((purchases) => {
       if (finalObj[purchases.type]) {

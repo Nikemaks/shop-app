@@ -1,5 +1,8 @@
 <div class="container align-items-center justify-content-center">
-  <ng-container *ngIf="chartData.length">
+  <ng-container *ngIf="chartData.length; else empty">
     <google-chart class="mt-5" [type]="chart.type" [data]="chartData" [title]="chart.title"></google-chart>
   </ng-container>
 </div>
+<ng-template #empty>
+  <h1 class="text-center mt-5">You haven't enough data yet.</h1>
+</ng-template>
