@@ -47,6 +47,7 @@ export class CreateListComponent implements OnInit {
 
   removeItem($event: number) {
     this.listItems = this.listItems.filter(item => item.id !== $event);
+    this.saveItem();
   }
 
   saveItem() {

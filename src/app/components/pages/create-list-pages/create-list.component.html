@@ -1,4 +1,4 @@
-<form [formGroup]="myGroup" class="form offset-3 col-5">
+<form [formGroup]="myGroup" class="form offset-lg-3 col-lg-5 col-sm-8">
   <div class="input-group">
     <input formControlName="newItem" type="text" class="form-control" placeholder="Add-item">
     <button [disabled]="myGroup.invalid"
@@ -6,7 +6,7 @@
             class="btn btn-outline-secondary"><i class="bi bi-plus-circle"></i></button>
   </div>
 </form>
-<div class="container mt-3 offset-3 col-5">
+<div class="container mt-3 offset-lg-3 col-lg-5 col-sm-8">
   <ul class="list-group">
     <ng-container *ngFor="let item of listItems">
       <app-list-items (save)="saveItem()" (removeItemList)="removeItem($event)" [item]="item"></app-list-items>
